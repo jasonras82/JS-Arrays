@@ -5,17 +5,23 @@ var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
   //Code Here
+function first(arr) {
+  return arr[0];
+}
+
 
 
 //Next problem
 
 
-
 var arr = [40,50,60];
 //Create a function named 'last' that is given 'arr' as the argument and returns the last item in the given array.
 
-
   //Code Here
+function last(arr) {
+  return arr[2];
+}
+
 
 
 //Next Problem
@@ -25,16 +31,27 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
   //Code Here
+function looper(family) {
+  for(var i = 0; i < family.length; i++) {
+    alert(family[i]);
+  }
+}
+
 
 
 //Next problem
-
 
 
 var letters = ['A', 'B', 'C', 'D', 'E'];
 //Write a function called reversedLooper that is given letters as it's only argument and loops through the given array backwards alerting every item in the array starting at the end.
 
   //Code Here
+function reversedLooper(letters) {
+  for(var i = letters.length-1; i >= 0; i--) {
+    alert(letters[i]);
+  }
+}
+
 
 
 //Next Problem
@@ -44,6 +61,15 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
   //Code Here
+function evenFinder(nums) {
+  for(var i = nums.length - 1; i >= 0; i--) {
+    if(nums[i] % 2) {
+      nums.splice(i,1);
+    }
+  }
+  return nums;
+}
+
 
 
 //Next problem
@@ -53,9 +79,22 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from nums) and the second item in the Array being the odds array(all the odd values from nums).
 
-
-
   //Code Here
+function divider(numbersArray){
+  var evens = [];
+  var odds = [];
+  for(var i = 0; i < numbersArray.length; i++) {
+    if(numbersArray[i] % 2) {
+      odds.push(numbersArray[i]);
+    }
+    else {
+      evens.push(numbersArray[i]);
+    }
+  }
+  var evensOdds = [evens, odds];
+  return evensOdds;
+}
+
 
 
 //Next Problem
@@ -70,24 +109,41 @@ var getRandomArbitrary = function() {
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
+function finder(numbers) {
+  var random = getRandomArbitrary();
+  var status = false;
+  for(var i = 0; i < numbers.length; i++) {
+    if(random === numbers[i]) {
+      status = true;
+    }
+  }
+  return status;
+}
 
-  //Code Here
 
 
 //Next problem
-
 
 
 var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
+function reverse(str) {
+  var array = [];
+  for(var i = str.length - 1; i >= 0; i--) {
+    array.push(str[i]);
+  }
+  return array.join('');
+}
+
 
 
 //Next Problem
 
 
 var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
+
 /*
   Here we're going to write a function that mimics going shopping and checking things off of our grocery list,
   and adding new items to our list.
@@ -104,6 +160,31 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
   //Code Here
+function removeItem(myGroceryList, item) {
+  if(item) {
+    for(var i = 0; i < myGroceryList.length; i++) {
+      if(myGroceryList[i] === item) {
+        myGroceryList.splice(i, 1);
+        break;
+      }
+    }return myGroceryList;
+  }
+  else {
+    var emptyArray = [];
+    return emptyArray;
+  }
+}
+
+function addItem(myGroceryList, item) {
+  if(item) {
+    myGroceryList.push(item);
+    return myGroceryList;
+  }
+  else {
+    var emptyArray = [];
+    return emptyArray;
+  }
+}
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -113,10 +194,16 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //Next Problem
 
 
-
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
+function maker() {
+  var numberArray = [];
+  for(var i = 1; i <= 215; i++) {
+    numberArray.push(i);
+  }
+  return numberArray;
+}
 
 
 
@@ -129,10 +216,17 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 
   //Code Here
 
+function addTen(numbers) {
+  var newNumbers = [];
+  for(i = 0; i < numbers.length; i++) {
+    var num = parseInt(numbers[i]);
+    newNumbers.push(num += 10);
+  }return newNumbers;
+}
+
 
 
 //Next Problem
-
 
 
 var num1 = Math.floor(Math.random() * (30 - 0) + 0);
@@ -145,11 +239,29 @@ for(var i = 0; i < num1; i++){
 for(var i = 0; i < num2; i++){
   arr2.push(i);
 }
+
 //Above is some code that adds a random number of values to both arr1 and arr2.
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
+function longer(arr1, arr2) {
+  var longest = [];
+  if(arr1.length > arr2.length) {
+    longest = arr1;
+  }
+  else if(arr2.length > arr1. length) {
+    longest = arr2;
+  }return longest;
+}
 
+// function longer(arr1, arr2) {
+//   if(arr1.length > arr2.length) {
+//     return arr1;
+//   }
+//   else if(arr2.length > arr1. length) {
+//     return arr2;
+//   }
+// }
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example).
@@ -158,13 +270,22 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
+function both(arr1, arr2) {
+  var newArray = [];
+  for(var i = 0; i < arr1.length; i++) {
+    for(var j = 0; j < arr2.length; j++){
+      if(arr1[i] === arr2[j]) {
+        newArray.push(arr1[i]);
+      }
+    }
+  }return newArray;
+}
 
+// Got it on the FIRST TRY!!  Boom!
 
 
 
 //NEXT PROBLEM
-
-
 
 
 var devMountainEmployees = [];
@@ -210,8 +331,6 @@ Loop through your devMountainEmployees until you find cahlan, then remove him fr
 //NEXT PROBLEM
 
 
-
-
 /*Now we're going to combine what we've learned today (objects) with what we learned
 yesterday (arrays). Yeah, take a deep breathe. You're ready for this, promise.
 Let's think back to our itunes example (tylermcginnis.com/itunes).
@@ -236,8 +355,6 @@ var data = [
         tracks: 19
     }
 ];
-
-
 
 /*A very clean way to pass around large LISTS (arrays) of COLLECTIONS (objects)
 of Data is to have an Array full of objects. */
