@@ -421,6 +421,8 @@ addUsers(user1);
 addUsers(user2);
 addUsers(user3);
 
+users.push(user1, user2, user3);
+
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -438,6 +440,12 @@ function deleteUser(userObject) {
     }
   }
 }
+
+users.forEach(function(item,index) {
+  if(item.name === "Tyler McGinnis"){
+    users.splice(index,1);
+  }
+});
 
 deleteUser(user1);
 
