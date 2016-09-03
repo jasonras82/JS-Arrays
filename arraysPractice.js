@@ -319,18 +319,20 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
-  function addEmployee(employee) {
-    return function(employee) {
-    devMountainEmployees.push(employee);
-    return devMountainEmployees;
-    }
-  }
+  // function addEmployee(employee) {
+  //   return function(employee) {
+  //   devMountainEmployees.push(employee);
+  //   return devMountainEmployees;
+  //   }
+  // }
+  //
+  // var addToEmployeeArray = addEmployee();
+  // addToEmployeeArray(tyler);
+  // addToEmployeeArray(cahlan);
+  // addToEmployeeArray(ryan);
+  // addToEmployeeArray(colt);
 
-  var addToEmployeeArray = addEmployee();
-  addToEmployeeArray(tyler);
-  addToEmployeeArray(cahlan);
-  addToEmployeeArray(ryan);
-  addToEmployeeArray(colt);
+  devMountainEmployees.push(tyler, cahlan, ryan, colt);
 
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
