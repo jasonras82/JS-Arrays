@@ -433,7 +433,7 @@ Once you find the particular index he's located in, delete him from the array.*/
 function deleteUser(userObject) {
   for(var i = 0; i < users.length; i++) {
     if(users[i] === userObject) {
-      users.splice(userObject);
+      users.splice(i, 1);
       return users;
     }
   }
