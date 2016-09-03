@@ -319,12 +319,34 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
+  function addEmployee(employee) {
+    return function(employee) {
+    devMountainEmployees.push(employee);
+    return devMountainEmployees;
+    }
+  }
+
+  var addToEmployeeArray = addEmployee();
+  addToEmployeeArray(tyler);
+  addToEmployeeArray(cahlan);
+  addToEmployeeArray(ryan);
+  addToEmployeeArray(colt);
+
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
+function removeEmployee(employee) {
+  for(var i = 0; i < devMountainEmployees.length; i++) {
+    if(devMountainEmployees[i] === employee) {
+      devMountainEmployees.splice(i, 1);
+      return devMountainEmployees;
+    }
+  }
+}
 
+removeEmployee(cahlan);
 
 
 
@@ -362,6 +384,7 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
+var users = [];
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -375,6 +398,28 @@ var user1 = {
 };
 
 //Your Code Here
+var user2 = {
+  name: 'Brittany Sanders',
+  email: 'brittyworley@comcast.net',
+  password: 'iLoveLyla',
+  username: 'brittysanders'
+};
+
+var user3 = {
+  name: 'Lyla Sanders',
+  email: 'lylasanders@gmail.com',
+  password: 'iLoveMomAndDad',
+  username: 'littleMonkey'
+}
+
+function addUsers(userObject) {
+  users.push(userObject);
+  return users;
+}
+
+addUsers(user1);
+addUsers(user2);
+addUsers(user3);
 
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
@@ -385,5 +430,15 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+function deleteUser(userObject) {
+  for(var i = 0; i < users.length; i++) {
+    if(users[i] === userObject) {
+      users.splice(userObject);
+      return users;
+    }
+  }
+}
+
+deleteUser(user1);
 
 //The activity we just did is very much how data works in 'the real world'.
